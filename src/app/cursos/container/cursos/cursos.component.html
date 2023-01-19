@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-toolbar color="primary" class="tittle-class"
+      >Lista de Cursos</mat-toolbar>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="column-flex mat-elevation-z8">
+      <!--Template (loading)-->
+      <!-- Neste If vamos observar se os dados já foram carregados, caso contrário o loading do spinner será invocado até toda tabela ser carregada -->
+      <!-- Estou me inscrevendo no "Observable" e vou extrair as informações que irão me retornar e vou chama-la de cursos -->
+      <app-lista-cursos
+        *ngIf="cursos$ | async as cursos; else loading"
+        [cursos]="cursos" (adicionar)="adicionarCurso()" (editar)="editarCurso($event)" (remover)="removerCurso($event)"
+      ></app-lista-cursos> <!--Escutando o evento emit--> <!-- para capturar o valor que está sendo emitido, vamos utilizar o objeto de evento do TS ($)-->
+      <!--Criando meu template-->
+      <ng-template #loading>
+        <div class="spinner-layout">
+          <mat-spinner>Loading</mat-spinner>
+        </div>
+      </ng-template>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+

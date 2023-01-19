@@ -1,0 +1,36 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Estilizando com estilo prório
+
+// $cor-app-primary: mat-palette($mat-blue);
+// $cor-app-secundary: mat-palette($mat-indigo, A200, A400, 700);
+// $cor-app-warning: mat-palette($mat-red);
+
+// $theme-customizado: mat-light-theme($cor-app-primary,$cor-app-secundary,cor-app-warning);
+
+// @include tema-light($theme-customizado)
+
+
+
+// Estilizando as paletas de cores utilizando os padrões do Material
+
+// Definindo Dark Theme
+$dark-theme: mat.define-dark-theme((
+ color: (
+   primary: mat.define-palette(mat.$pink-palette),
+   accent: mat.define-palette(mat.$blue-grey-palette),
+ ),
+  // Tipografia e densidade
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Aplicando Dark Theme por default
+@include mat.core-theme($dark-theme);
+@include mat.button-theme($dark-theme);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

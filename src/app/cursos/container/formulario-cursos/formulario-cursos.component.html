@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-header>
+    <mat-toolbar color="primary" class="tittle-class">Cadastrar Cursos</mat-toolbar>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" class="min-widht">
+      <!--Associando esse formulário com o atributo que criei chamado form-->
+      <mat-form-field class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" formControlName="nome" />
+        <!-- Associar o campo de input ao campo nome-->
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Categoria</mat-label>
+        <!-- Associar o campo de input a categoria-->
+        <mat-select formControlName="categoria">
+          <mat-option value="front-end">Front-End</mat-option>
+          <mat-option value="back-end">Back-End</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" class="button-class" (click)="onSubmit()">Salvar</button>
+      <button mat-raised-button color="primary" class="button-class" (click)="onCancel()">Cancelar</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
