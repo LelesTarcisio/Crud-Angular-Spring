@@ -1,3 +1,4 @@
+import { environment } from './../environments/environmet';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, tap } from 'rxjs/operators';
@@ -10,7 +11,7 @@ import { Curso } from '../model/curso';
 })
 export class CursoService {
 
-  private readonly API = 'api/cursos'; // Pegando o json da api criada no
+  private readonly API = `${environment.URL_BACKEND}/api/cursos`; // Pegando o json da api criada no
 
   // Injeção de dependencia // Obter a informação do servidor, e iremos fazer uma chamado ajax (chamada para um servidor).
 
